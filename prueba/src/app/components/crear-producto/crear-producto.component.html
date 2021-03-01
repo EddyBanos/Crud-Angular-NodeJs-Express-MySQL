@@ -1,0 +1,58 @@
+<div class="container mt-5">
+	<div class="row">
+		<div class= "col-lg-8 offset-lg-2">
+			<div class="card">
+				<div class= "card-body text-center">
+					<span class= "titulo">  {{ titulo }} </span>
+					<form class="mt-3"[formGroup]="productoForm" (ngSubmit)="agregarProducto()">
+						<div class="mb-3">
+						    <input type="text" formControlName="color"
+						    class="form-control form-control-lg" placeholder="Color">
+						    <div class="text-danger"
+						    *ngIf="productoForm.get('color')?.hasError('required') && productoForm.get('color')?.touched">
+						    	<span><strong>El color es obligatorio </strong></span>
+						    </div>
+						</div>
+						<div class="mb-3">
+						    <input type="text" formControlName="dimension"
+						    class="form-control form-control-lg" placeholder="Dimension">
+						    <div class="text-danger"
+						    *ngIf="productoForm.get('dimension')?.hasError('required') && productoForm.get('dimension')?.touched">
+						    	<span><strong>La dimension es obligatoria </strong></span>
+						    </div>
+						</div>
+						<div class="mb-3">
+						    <input type="text" formControlName="capacidad"
+						    class="form-control form-control-lg" placeholder="Capacidad">
+						</div>
+						<div class="text-danger"
+						    *ngIf="productoForm.get('capacidad')?.hasError('required') && productoForm.get('capacidad')?.touched">
+						    	<span><strong>La capacidad es obligatoria </strong></span>
+						    </div>
+						<div class="mb-3">
+						    <input type="text" formControlName="modelo"
+						    class="form-control form-control-lg" placeholder="Modelo">
+						    <div class="text-danger"
+						    *ngIf="productoForm.get('modelo')?.hasError('required') && productoForm.get('modelo')?.touched">
+						    	<span><strong>El modelo del producto es obligatorio </strong></span>
+						    </div>
+						</div>
+						<div class="mb-3">
+						    <input type="text" formControlName="stock"
+						    class="form-control form-control-lg" placeholder="Stock">
+						    <div class="text-danger"
+						    *ngIf="productoForm.get('stock')?.hasError('required') && productoForm.get('stock')?.touched">
+						    	<span><strong>El stock del producto es obligatorio </strong></span>
+						    </div>
+						</div>
+						<div class="mb-3">
+							<button routerLink= "/"class="btn btn-secondary btn-lg float-start"> Volver</button>
+							<button type="submit" [disabled]="productoForm.invalid" class="btn btn-success btn-lg float-end">{{ btnText }}</button>
+						</div>
+					</form>
+				</div>
+			</div>
+
+		</div>
+	</div>
+</div>
